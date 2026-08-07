@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Automação com IA para Empresas</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:Arial,Helvetica,sans-serif;
+background:#0b0b0b;
+color:#fff;
+line-height:1.6;
+
+}
+
+.container{
+
+width:min(1200px,90%);
+margin:auto;
+
+}
+
+section{
+
+padding:90px 0;
+
+}
+
+h1,h2{
+
+line-height:1.1;
+
+}
+
+a{
+
+text-decoration:none;
+
+}
+
+.btn{
+
+display:inline-block;
+padding:16px 34px;
+background:#00d084;
+color:#000;
+font-weight:bold;
+border-radius:8px;
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+header{
+
+position:fixed;
+width:100%;
+background:rgba(0,0,0,.8);
+backdrop-filter:blur(8px);
+z-index:999;
+
+}
+
+nav{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:80px;
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:bold;
+color:#00d084;
+
+}
+
+.menu{
+
+display:flex;
+gap:30px;
+
+}
+
+.menu a{
+
+color:white;
+
+}
+
+.hero{
+
+min-height:100vh;
+display:flex;
+align-items:center;
+background:
+linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80");
+background-size:cover;
+background-position:center;
+
+}
+
+.hero-grid{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:80px;
+
+}
+
+.hero h1{
+
+font-size:62px;
+margin-bottom:25px;
+
+}
+
+.hero p{
+
+font-size:20px;
+margin-bottom:35px;
+color:#ddd;
+
+}
+
+.card{
+
+background:#161616;
+padding:35px;
+border-radius:14px;
+border:1px solid #252525;
+
+}
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:40px;
+
+}
+
+.stat{
+
+background:#121212;
+padding:30px;
+border-radius:12px;
+text-align:center;
+
+}
+
+.stat h3{
+
+font-size:42px;
+color:#00d084;
+
+}
+
+.services{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+
+}
+
+.service{
+
+background:#151515;
+padding:35px;
+border-radius:12px;
+
+}
+
+.service h3{
+
+margin-bottom:15px;
+
+}
+
+.steps{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+
+}
+
+.step{
+
+padding:30px;
+background:#171717;
+border-radius:12px;
+
+}
+
+.step span{
+
+font-size:45px;
+color:#00d084;
+
+}
+
+.testimonials{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+
+}
+
+.testimonial{
+
+background:#181818;
+padding:30px;
+border-radius:12px;
+
+}
+
+.cta{
+
+text-align:center;
+background:#00d084;
+color:black;
+
+}
+
+.cta h2{
+
+font-size:50px;
+margin-bottom:20px;
+
+}
+
+footer{
+
+padding:50px;
+text-align:center;
+background:#050505;
+color:#777;
+
+}
+
+@media(max-width:900px){
+
+.hero-grid,
+.services,
+.stats,
+.steps,
+.testimonials{
+
+grid-template-columns:1fr;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.menu{
+
+display:none;
+
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="container">
+
+<nav>
+
+<div class="logo">
+SEVEN AI
+</div>
+
+<div class="menu">
+
+<a href="#servicos">Serviços</a>
+<a href="#processo">Processo</a>
+<a href="#clientes">Clientes</a>
+<a href="#contato">Contato</a>
+
+</div>
+
+<a class="btn" href="#">Agendar Diagnóstico</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<h1>
+Automatize seu negócio com Inteligência Artificial
+</h1>
+
+<p>
+
+Reduza custos operacionais, aumente produtividade e elimine tarefas repetitivas utilizando agentes inteligentes personalizados.
+
+</p>
+
+<a class="btn" href="#">
+Quero Automatizar
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>Diagnóstico Gratuito</h2>
+
+<br>
+
+<p>
+
+Descubra quais processos da sua empresa podem ser automatizados em poucos dias.
+
+</p>
+
+<br>
+
+<form id="leadForm">
+
+<input id="name" name="name" type="text" placeholder="Nome" style="width:100%;padding:15px;margin-bottom:15px;" required>
+
+<input id="email" name="email" type="email" placeholder="Email" style="width:100%;padding:15px;margin-bottom:15px;" required>
+
+<input id="company" name="company" type="text" placeholder="Empresa" style="width:100%;padding:15px;margin-bottom:15px;" required>
+
+<button class="btn" type="submit" style="width:100%;">
+Solicitar Diagnóstico
+</button>
+
+</form>
+
+<p id="formMessage" style="margin-top:15px;color:#00d084;font-weight:bold;"></p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+
+<h3>80%</h3>
+
+<p>Redução de tarefas repetitivas</p>
+
+</div>
+
+<div class="stat">
+
+<h3>24h</h3>
+
+<p>Atendimento automático</p>
+
+</div>
+
+<div class="stat">
+
+<h3>3x</h3>
+
+<p>Mais produtividade</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="servicos">
+
+<div class="container">
+
+<h2 style="margin-bottom:50px;text-align:center;font-size:48px;">
+Nossos Serviços
+</h2>
+
+<div class="services">
+
+<div class="service">
+
+<h3>Chatbots IA</h3>
+
+<p>
+
+Atendimento inteligente para WhatsApp, Instagram e site.
+
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>Automações</h3>
+
+<p>
+
+Integração entre CRM, ERP, planilhas e APIs.
+
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>Agentes Inteligentes</h3>
+
+<p>
+
+IA treinada para executar processos completos.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="processo">
+
+<div class="container">
+
+<h2 style="text-align:center;font-size:48px;margin-bottom:50px;">
+Como Funciona
+</h2>
+
+<div class="steps">
+
+<div class="step">
+
+<span>1</span>
+
+<h3>Diagnóstico</h3>
+
+<p>
+
+Entendemos seus processos.
+
+</p>
+
+</div>
+
+<div class="step">
+
+<span>2</span>
+
+<h3>Planejamento</h3>
+
+<p>
+
+Desenhamos a automação.
+
+</p>
+
+</div>
+
+<div class="step">
+
+<span>3</span>
+
+<h3>Implementação</h3>
+
+<p>
+
+Integração completa.
+
+</p>
+
+</div>
+
+<div class="step">
+
+<span>4</span>
+
+<h3>Suporte</h3>
+
+<p>
+
+Monitoramento contínuo.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="clientes">
+
+<div class="container">
+
+<h2 style="text-align:center;font-size:48px;margin-bottom:50px;">
+O que nossos clientes dizem
+</h2>
+
+<div class="testimonials">
+
+<div class="testimonial">
+
+★★★★★
+
+<p>
+
+"Economizamos mais de 40 horas por semana."
+
+</p>
+
+<strong>Empresa Alpha</strong>
+
+</div>
+
+<div class="testimonial">
+
+★★★★★
+
+<p>
+
+"O atendimento ficou praticamente automático."
+
+</p>
+
+<strong>Empresa Beta</strong>
+
+</div>
+
+<div class="testimonial">
+
+★★★★★
+
+<p>
+
+"O investimento se pagou em poucos meses."
+
+</p>
+
+<strong>Empresa Gama</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta" id="contato">
+
+<div class="container">
+
+<h2>
+
+Sua empresa ainda perde tempo com trabalho manual?
+
+</h2>
+
+<p style="margin:30px 0;font-size:20px;">
+
+Solicite uma análise gratuita e descubra quanto você pode economizar utilizando Inteligência Artificial.
+
+</p>
+
+<a class="btn" style="background:black;color:white;" href="#">
+
+Agendar Reunião
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 SEVEN AI
+
+</footer>
+
+<script>
+  const form = document.getElementById('leadForm');
+  const message = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const data = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      company: document.getElementById('company').value
+    };
+
+    message.textContent = 'Enviando...';
+
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Erro ao enviar');
+      }
+
+      message.textContent = 'Diagnóstico solicitado com sucesso!';
+      form.reset();
+    } catch (error) {
+      message.textContent = error.message;
+    }
+  });
+</script>
+
+</body>
+</html>

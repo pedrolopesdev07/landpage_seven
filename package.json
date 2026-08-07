@@ -1,0 +1,9 @@
+{
+  "name": "landpage-backend",
+  "version": "1.0.0",
+  "description": "Backend simples para a landpage com armazenamento de leads",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
