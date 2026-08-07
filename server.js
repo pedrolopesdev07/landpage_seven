@@ -90,13 +90,26 @@ function serveFile(res, filePath) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
 
+  if (req.method === 'GET' && url.pathname === '/api/health') {
+    sendJson(res, 200, { ok: true, message: 'Backend ativo' });
+    return;
+  }
+
   if (req.method === 'GET' && (url.pathname === '/' || url.pathname === '/index.html')) {
     serveFile(res, path.join(ROOT_DIR, 'index.html'));
     return;
   }
 
-  if (req.method === 'GET' && url.pathname === '/api/health') {
-    sendJson(res, 200, { ok: true, message: 'Backend ativo' });
+  if (req.method === 'GET') {
+    const requestedPath = url.pathname === '/' ? '/index.html' : url.pathname;
+    const filePath = path.join(ROOT_DIR, requestedPath);
+
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+      serveFile(res, filePath);
+      return;
+    }
+
+    serveFile(res, path.join(ROOT_DIR, 'index.html'));
     return;
   }
 
